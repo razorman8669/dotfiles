@@ -21,7 +21,7 @@ ln -s $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/.bash_prompt $HOME/.bash_prompt
 
 ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
-ln -s $HOME/.dotfiles/.gitconfig ~/.gitignore_global
+ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global
 
 ln -s $HOME/.dotfiles/.vim ~/.vim
 ln -s $HOME/.dotfiles/.vim/vimrc ~/.vimrc
