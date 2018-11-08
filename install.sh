@@ -15,7 +15,7 @@ brew tap homebrew/bundle
 brew bundle
 
 # Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
-rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.vim $HOME/.vimrc $HOME/.gitconfig $HOME/.gitignore_global
+rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global
 ln -s $HOME/.dotfiles/.bashrc $HOME/.bashrc
 ln -s $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/.bash_prompt $HOME/.bash_prompt
@@ -23,8 +23,9 @@ ln -s $HOME/.dotfiles/.bash_prompt $HOME/.bash_prompt
 ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
 ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global
 
-ln -s $HOME/.dotfiles/.vim ~/.vim
-ln -s $HOME/.dotfiles/.vim/vimrc ~/.vimrc
+# Setup awesomeVim https://github.com/amix/vimrc
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # Set macOS preferences
 # We will run this last because this will reload the shell

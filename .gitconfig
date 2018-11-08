@@ -53,8 +53,3 @@
 # 	gpgsign = true
 [credential]
 	helper = osxkeychainafter
-bundle
-colors
-font
-README
-vimrc
