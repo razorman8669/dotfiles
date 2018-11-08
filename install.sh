@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo "Setting up your Mac..."
+sudo -v
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
@@ -13,6 +14,10 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
 brew bundle
+
+# set brew bash shell to default (from https://merapar.com/2017/04/10/700/)
+echo '/usr/local/bin/bash' | sudo tee -a /etc/shells > /dev/null
+sudo chsh -s /usr/local/bin/bash
 
 # Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
 rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global

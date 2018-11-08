@@ -44,12 +44,31 @@ alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias dotfiles="cd $DOTFILES"
 
 # Docker
-alias dk='docker'
-alias dkc='docker-compose'
-#function docker_logs() { docker logs $1 -f --tail ${2-0} 2>&1 }
-#function docker_restart_logs() { docker restart $1 && docker_logs $@ }
-#alias dkl='docker_logs'
-#alias dkrl='docker_restart_logs'
+_docker-container-names(){
+        local cur=${COMP_WORDS[COMP_CWORD]}
+        __docker_complete_container_names
+}
+
+alias dk="docker"
+complete -F _docker dk
+
+alias dps="docker ps"
+
+alias dkl='docker logs'
+complete -F _docker-container-names dkl
+
+alias dc="docker-compose"
+complete -F _docker_compose dc
+
+alias dkrmall="docker rm \$(docker ps -aq)"
+
+docker-restart-logs(){
+        # $1 == container
+        docker restart $1 && docker logs $1 -f
+}
+alias dkrl='docker-restart-logs'
+complete -F _docker-container-names dkrl
+
 
 # Git
 alias commit="git add . && git commit -m"
