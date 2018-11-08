@@ -36,9 +36,9 @@
 [merge]
 	conflictstyle = diff3
 
-# [rebase]
-# 	stat = yes
-# 	autostash = true
+[rebase]
+	stat = yes
+	autostash = true
 # [push]
 # 	default = simple
 # [filter "media"]
@@ -53,9 +53,11 @@
 # 	gpgsign = true
 [credential]
 	helper = osxkeychainafter
+[pull]
+	rebase = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
