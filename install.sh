@@ -15,10 +15,16 @@ brew tap homebrew/bundle
 brew bundle
 
 # Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
-rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt
+rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.vim $HOME/.gitconfig $HOME/.gitignore_global
 ln -s $HOME/.dotfiles/.bashrc $HOME/.bashrc
 ln -s $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/.bash_prompt $HOME/.bash_prompt
+
+ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
+ln -s $HOME/.dotfiles/.gitconfig ~/.gitignore_global
+
+ln -s $HOME/.dotfiles/.vim ~/.vim
+ln -s $HOME/.dotfiles/.vim/vimrc ~/.vimrc
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
