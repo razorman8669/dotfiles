@@ -15,7 +15,7 @@ brew tap homebrew/bundle
 brew bundle
 
 # Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
-rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.vim $HOME/.gitconfig $HOME/.gitignore_global
+rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.vim $HOME/.vimrc $HOME/.gitconfig $HOME/.gitignore_global
 ln -s $HOME/.dotfiles/.bashrc $HOME/.bashrc
 ln -s $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/.bash_prompt $HOME/.bash_prompt

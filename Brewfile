@@ -36,7 +36,6 @@ cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'quicklook-csv'
 cask 'qlstephen'
-cask 'qlimagesize'
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
