@@ -20,10 +20,11 @@ echo '/usr/local/bin/bash' | sudo tee -a /etc/shells > /dev/null
 sudo chsh -s /usr/local/bin/bash
 
 # Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
-rm -rf $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global
+rm -rf $HOME/.aliases $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global
 ln -s $HOME/.dotfiles/.bashrc $HOME/.bashrc
 ln -s $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/.bash_prompt $HOME/.bash_prompt
+ln -s $HOME/.dotfiles/.aliases $HOME/.aliases
 
 ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
 ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global

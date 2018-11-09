@@ -52,9 +52,9 @@ _docker-container-names(){
 alias dk="docker"
 complete -F _docker dk
 
-alias dps="docker ps"
+alias dps="docker ps -a"
 
-alias dkl='docker logs'
+alias dkl='docker logs -f'
 complete -F _docker-container-names dkl
 
 alias dc="docker-compose"
@@ -64,8 +64,11 @@ alias dkrmall="docker rm \$(docker ps -aq)"
 
 docker-restart-logs(){
         # $1 == container
-        docker restart $1 && docker logs $1 -f
+        docker restart $1 && docker logs -f $1
 }
+alias dkr="docker restart $1"
+complete -F _docker-container-names dkr
+
 alias dkrl='docker-restart-logs'
 complete -F _docker-container-names dkrl
 
