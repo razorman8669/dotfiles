@@ -44,6 +44,7 @@ alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias dotfiles="cd $DOTFILES"
 
 # Docker
+# Allows for autocomplete of container names
 _docker-container-names(){
         local cur=${COMP_WORDS[COMP_CWORD]}
         __docker_complete_container_names
@@ -72,6 +73,11 @@ complete -F _docker-container-names dkr
 alias dkrl='docker-restart-logs'
 complete -F _docker-container-names dkrl
 
+# Easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 # Git
 alias commit="git add . && git commit -m"
