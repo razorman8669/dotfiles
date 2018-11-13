@@ -258,6 +258,10 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # Show 24 hours a day
 defaults write com.apple.ical "number of hours displayed" 24
 
+# Set sublime text to default plaintext editor
+defaults write com.apple.LaunchServices/com.apple.launchservices.secure LSHandlers -array-add \
+'{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'
+
 # # Week should start on Monday
 # defaults write com.apple.ical "first day of the week" 1
 
