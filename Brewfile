@@ -14,6 +14,7 @@ brew 'git'
 brew 'grep'
 brew 'trash'
 brew 'tree'
+brew 'htop'
 
 # Development
 brew 'redis'
