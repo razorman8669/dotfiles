@@ -15,6 +15,16 @@ brew 'grep'
 brew 'trash'
 brew 'tree'
 brew 'htop'
+brew 'wget'
+
+# pyenv installation
+brew 'pyenv'
+brew 'openssl'
+brew 'readline'
+brew 'sqlite3'
+brew 'xz'
+brew 'zlib'
+brew 'pyenv-virtualenv'
 
 # Development
 brew 'redis'
@@ -43,4 +53,3 @@ cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
-

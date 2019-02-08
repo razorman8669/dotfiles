@@ -19,6 +19,9 @@ brew bundle
 echo '/usr/local/bin/bash' | sudo tee -a /etc/shells > /dev/null
 sudo chsh -s /usr/local/bin/bash
 
+# pyenv post setup
+sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+
 # Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
 rm -rf $HOME/.aliases $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global
 ln -s $HOME/.dotfiles/.bashrc $HOME/.bashrc

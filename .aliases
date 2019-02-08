@@ -17,6 +17,10 @@ alias sshVPN="ssh -i ~/.ssh/scileadsvpn.pem ubuntu@35.182.42.78"
 alias sshRemoteNode="ssh -i ~/.ssh/miningllc.pem ubuntu@34.218.184.119"
 alias sshEtnWallet="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-35-164-2-179.us-west-2.compute.amazonaws.com"
 
+# Purse
+alias sshPurseTunnelTestDB="ssh -L 5433:localhost:5432 purse@35.203.176.97 -N -v"
+alias sshPurseBcoinTunnel="ssh -L 5001:localhost:5001 purse@35.233.193.223 -N -v"
+alias sshPurseBCoinTestnet="ssh purse@35.233.193.223"
 
 # LS aliases
 # Detect which `ls` flavor is in use
@@ -46,8 +50,8 @@ alias dotfiles="cd $DOTFILES"
 # Docker
 # Allows for autocomplete of container names
 _docker-container-names(){
-        local cur=${COMP_WORDS[COMP_CWORD]}
-        __docker_complete_container_names
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    __docker_complete_container_names
 }
 
 alias dk="docker"
@@ -55,21 +59,27 @@ complete -F _docker dk
 
 alias dps="docker ps -a"
 
-alias dkl='docker logs -f'
+alias dkl='docker logs -f --tail 100'
 complete -F _docker-container-names dkl
+
+docker-exec(){
+    docker exec -it $1 sh
+}
+alias dkexec='docker-exec'
+complete -F _docker-container-names dkexec
 
 alias dc="docker-compose"
 complete -F _docker_compose dc
 
 alias dkrmall="docker rm \$(docker ps -aq)"
 
-docker-restart-logs(){
-        # $1 == container
-        docker restart $1 && docker logs -f $1
-}
 alias dkr="docker restart $1"
 complete -F _docker-container-names dkr
 
+docker-restart-logs(){
+    # $1 == container
+    docker restart $1 && docker logs -f --tail 100 $1
+}
 alias dkrl='docker-restart-logs'
 complete -F _docker-container-names dkrl
 
