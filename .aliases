@@ -21,6 +21,8 @@ alias sshEtnWallet="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-35-164-2-179.us-west-
 alias sshPurseTunnelTestDB="ssh -L 5433:localhost:5432 purse@35.203.176.97 -N -v"
 alias sshPurseBcoinTunnel="ssh -L 5001:localhost:5001 purse@35.233.193.223 -N -v"
 alias sshPurseBCoinTestnet="ssh purse@35.233.193.223"
+alias sshPurseGodProduction="ssh god@production.god.dev.purse.io"
+alias sshPurseGodMaster="ssh god@master.god.dev.purse.io"
 
 # LS aliases
 # Detect which `ls` flavor is in use
