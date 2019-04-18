@@ -56,8 +56,8 @@ _docker-container-names(){
     __docker_complete_container_names
 }
 
-alias dk="docker"
-complete -F _docker dk
+alias d="docker"
+complete -F _docker d
 
 alias dps="docker ps -a"
 
@@ -65,7 +65,7 @@ alias dkl='docker logs -f --tail 100'
 complete -F _docker-container-names dkl
 
 docker-exec(){
-    docker exec -it $1 sh
+    docker exec -it $1 bash
 }
 alias dkexec='docker-exec'
 complete -F _docker-container-names dkexec
