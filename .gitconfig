@@ -1,6 +1,6 @@
 [user]
 	name = Ray Marceau
-	email = razor2n4@gmail.com
+	email = ray@raymarceau.com
 
 # Makes pushing easier on master branch
 # [branch "master"]
@@ -59,7 +59,7 @@
     default = current
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

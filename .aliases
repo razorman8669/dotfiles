@@ -65,7 +65,7 @@ alias dkl='docker logs -f --tail 100'
 complete -F _docker-container-names dkl
 
 docker-exec(){
-    docker exec -it $1 bash
+    docker exec -it $1 sh
 }
 alias dkexec='docker-exec'
 complete -F _docker-container-names dkexec
