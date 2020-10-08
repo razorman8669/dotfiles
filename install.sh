@@ -11,16 +11,51 @@ fi
 # Update Homebrew recipes
 brew update
 
-# Install all our dependencies with bundle (See Brewfile)
-brew tap homebrew/bundle
-brew bundle
+# Upgrade any already-installed formulae.
+brew upgrade
 
-# set brew bash shell to default (from https://merapar.com/2017/04/10/700/)
-echo '/usr/local/bin/bash' | sudo tee -a /etc/shells > /dev/null
-sudo chsh -s /usr/local/bin/bash
+# Save Homebrew’s installed location.
+BREW_PREFIX=$(brew --prefix)
 
-# pyenv post setup
-sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+# Install GNU core utilities (those that come with macOS are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew install coreutils
+ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
+
+# Install a modern version of Bash.
+brew install bash
+brew install bash-completion2
+brew install docker-completion
+
+# Switch to using brew-installed bash as default shell
+if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
+  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
+  chsh -s "${BREW_PREFIX}/bin/bash";
+fi;
+
+# Install `wget` with IRI support.
+brew install wget --with-iri
+
+# Install GnuPG to enable PGP-signing commits.
+brew install gnupg
+
+# Install more recent versions of some macOS tools.
+brew install vim --with-override-system-vi
+brew install grep
+
+# Install other useful binaries.
+brew install ack
+brew install git
+brew install git-lfs
+brew cask install iterm2
+
+# pyenv installation
+brew install pyenv
+brew install pyenv-virtualenv
+brew install openssl readline sqlite3 xz zlib
+
+# Remove outdated versions from the cellar.
+brew cleanup
 
 # Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
 rm -rf $HOME/.aliases $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global
@@ -32,12 +67,12 @@ ln -s $HOME/.dotfiles/.aliases $HOME/.aliases
 ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
 ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global
 
+# NVM install
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
 # Setup awesomeVim https://github.com/amix/vimrc
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
-
-# Set line endings: https://help.github.com/en/articles/dealing-with-line-endings
-git config --global core.autocrlf input
 
 # Set macOS preferences
 # We will run this last because this will reload the shell

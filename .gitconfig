@@ -1,6 +1,13 @@
 [user]
 	name = Ray Marceau
-	email = ray@raymarceau.com
+	email = ray@purse.io
+
+[includeIf "gitdir:~/dev/slackincode.github.io"]
+    path = ~/dev/slackincode.github.io/.gitconfig
+
+[includeIf "gitdir:~/dev/purse"]
+    path = ~/dev/purse/.gitconfig
+
 
 # Makes pushing easier on master branch
 # [branch "master"]
@@ -32,6 +39,7 @@
 	autocrlf = input
 	excludesfile = /Users/razor/.gitignore_global
 	editor = vim
+	precomposeUnicode = true
 
 [merge]
 	conflictstyle = diff3
@@ -52,14 +60,14 @@
 # [commit]
 # 	gpgsign = true
 [credential]
-	helper = osxkeychainafter
+	helper = osxkeychain
 [pull]
     rebase = true
 [push]
     default = current
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -67,3 +75,8 @@
 	template = /Users/razor/.stCommitMsg
 [gpg]
 	program = gpg2
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
