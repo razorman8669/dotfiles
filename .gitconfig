@@ -1,6 +1,6 @@
 [user]
 	name = Ray Marceau
-	email = ray@purse.io
+	email = ray@raymarceau.com
 
 [includeIf "gitdir:~/dev/slackincode.github.io"]
     path = ~/dev/slackincode.github.io/.gitconfig
@@ -69,7 +69,7 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Users/razor/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
 	template = /Users/razor/.stCommitMsg

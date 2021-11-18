@@ -1,30 +1,7 @@
 #!/bin/bash
 
-# Miners
-alias tunnelEthRemoteNode="((sleep 5 && open 'http://127.0.0.1:8180/#/auth?token=REDACTED')&) && ssh -L 8545:127.0.0.1:8545 -L 8546:127.0.0.1:8546 -L 8180:127.0.0.1:8180 ubuntu@ec2-52-25-50-138.us-west-2.compute.amazonaws.com -i ~/.ssh/miningllc.pem"
-alias tunnelSmartWallet="((sleep 5 && open 'vnc://127.0.0.1:5901')&) && ssh -i '~/.ssh/miningllc.pem' -L 5901:127.0.0.1:5901 ubuntu@ec2-34-216-88-229.us-west-2.compute.amazonaws.com"
-alias sshEthRemoteNode="ssh ubuntu@ec2-52-25-50-138.us-west-2.compute.amazonaws.com -i ~/.ssh/miningllc.pem"
-alias sshMN1="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-34-214-166-76.us-west-2.compute.amazonaws.com"
-alias sshMN2="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-52-38-180-154.us-west-2.compute.amazonaws.com"
-alias sshMN3="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-34-208-102-148.us-west-2.compute.amazonaws.com"
-alias sshMN4="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-34-208-164-206.us-west-2.compute.amazonaws.com"
-alias sshMNJew="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-34-215-204-39.us-west-2.compute.amazonaws.com"
-alias sshTierionMN="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-52-24-17-117.us-west-2.compute.amazonaws.com"
-alias sshTierionMN2="ssh -i ~/.ssh/miningllc.pem ubuntu@34.215.171.223"
-alias sshTierionMN3="ssh -i ~/.ssh/miningllc.pem ubuntu@34.218.86.227"
-alias sshTierionMN4="ssh -i ~/.ssh/miningllc.pem ubuntu@34.218.86.54"
-alias sshVPN="ssh -i ~/.ssh/scileadsvpn.pem ubuntu@35.182.42.78"
-alias sshRemoteNode="ssh -i ~/.ssh/miningllc.pem ubuntu@34.218.184.119"
-alias sshEtnWallet="ssh -i ~/.ssh/miningllc.pem ubuntu@ec2-35-164-2-179.us-west-2.compute.amazonaws.com"
-
-alias sshArmadaProxy="ssh ubuntu@ec2-34-209-29-116.us-west-2.compute.amazonaws.com"
-
-# Purse
-alias sshPurseTunnelDB="ssh -L 5433:localhost:5432 purse@35.233.255.234 -N -v"
-alias sshPurseTunnelTestDB="ssh -L 5433:localhost:5432 purse@35.203.176.97 -N -v"
-alias sshPurseBcoinTunnel="ssh -L 5001:localhost:5001 purse@34.94.176.18 -N -v"
-alias sshPurseBCoinTestnet="ssh purse@35.233.193.223"
-
+# Load any private aliases
+if [ -f "$HOME/.private_aliases" ]; then . "$HOME/.private_aliases"; fi
 
 # LS aliases
 # Detect which `ls` flavor is in use
@@ -55,9 +32,10 @@ alias dotfiles="cd $DOTFILES"
 # Allows for autocomplete of container names
 _docker-container-names(){
     local cur=${COMP_WORDS[COMP_CWORD]}
-    __docker_complete_container_names
+    __docker_complete_containers
 }
 
+alias dm='docker-machine'
 alias d="docker"
 alias dk="d"
 
@@ -65,7 +43,10 @@ complete -F _docker d
 
 alias dps="docker ps -a"
 
-alias dkl='docker logs -f --tail 1000'
+docker-logs(){
+  docker logs -f --tail ${2-1000} $1 2>&1
+}
+alias dkl='docker-logs'
 complete -F _docker-container-names dkl
 
 docker-exec(){

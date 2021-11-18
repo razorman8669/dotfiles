@@ -5,7 +5,8 @@ sudo -v
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update Homebrew recipes
@@ -24,7 +25,7 @@ ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
 # Install a modern version of Bash.
 brew install bash
-brew install bash-completion2
+brew install bash-completion@2
 brew install docker-completion
 
 # Switch to using brew-installed bash as default shell
@@ -50,9 +51,9 @@ brew install git-lfs
 brew cask install iterm2
 
 # pyenv installation
+brew install openssl readline sqlite3 xz zlib
 brew install pyenv
 brew install pyenv-virtualenv
-brew install openssl readline sqlite3 xz zlib
 
 # Remove outdated versions from the cellar.
 brew cleanup
@@ -68,7 +69,7 @@ ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
 ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global
 
 # NVM install
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 # Setup awesomeVim https://github.com/amix/vimrc
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
