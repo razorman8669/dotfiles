@@ -3,6 +3,10 @@ export DOTFILES=$HOME/.dotfiles
 
 # Ensure user-installed binaries take precedence
 export PATH=/usr/local/bin:$PATH
+# Apple Silicon location
+export PATH=/opt/homebrew/bin:$PATH
+# Homebrew sbin
+export PATH=/opt/homebrew/sbin:$PATH
 
 # user home binaries
 export PATH=$HOME/bin:$PATH
@@ -12,6 +16,10 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 # Chromium
 export PATH="$PATH:/Users/razor/dev/depot_tools"
+
+# DOCKER
+# use plain buildkit output
+export BUILDKIT_PROGRESS=plain
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then

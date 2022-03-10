@@ -48,6 +48,8 @@ docker-logs(){
 }
 alias dkl='docker-logs'
 complete -F _docker-container-names dkl
+alias dl="dkl"
+complete -F _docker-container-names dl
 
 docker-exec(){
     docker exec -it $1 sh

@@ -6,7 +6,6 @@ sudo -v
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update Homebrew recipes
@@ -41,14 +40,14 @@ brew install wget --with-iri
 brew install gnupg
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
+brew install vim
 brew install grep
 
 # Install other useful binaries.
 brew install ack
 brew install git
 brew install git-lfs
-brew cask install iterm2
+brew install --cask iterm2
 
 # pyenv installation
 brew install openssl readline sqlite3 xz zlib
