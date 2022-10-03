@@ -50,6 +50,12 @@ Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to inst
 
 Check out the [`aliases`](./.aliases) file and add your own aliases.
 
+## Hosts
+
+A malware and adware removing hosts file from https://github.com/StevenBlack/hosts/blob/master/readme.md#option-1-use-our-container-image-linux-only
+Use `docker run --pull always --rm -it -v /etc/hosts:/etc/hosts -v ~/.dotfiles/myhosts ghcr.io/stevenblack/hosts:latest updateHostsFile.py --auto --replace` to update the host file to the latest.
+
+
 ## Thanks To...
 
 [Github does dotfiles](https://dotfiles.github.io/) project. Both [Zach Holman](https://github.com/holman/dotfiles) and [Mathias Bynens](https://github.com/mathiasbynens/dotfiles) were great sources of inspiration. [Sourabh Bajaj](https://twitter.com/sb2nov/)'s [Mac OS X Setup Guide](http://sourabhbajaj.com/mac-setup/) proved to be invaluable. lastly, I'd like to thank [Maxime Fabre](https://twitter.com/anahkiasen) for [his excellent presentation on Homebrew](https://speakerdeck.com/anahkiasen/a-storm-homebrewin) which made me migrate a lot to a [`Brewfile`](./Brewfile)
