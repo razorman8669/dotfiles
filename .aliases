@@ -44,7 +44,7 @@ complete -F _docker d
 alias dps="docker ps -a"
 
 docker-logs(){
-  docker logs -f --tail ${2-1000} $1 2>&1
+  docker logs -f --tail ${2-100} $1 2>&1
 }
 alias dkl='docker-logs'
 complete -F _docker-container-names dkl
@@ -68,7 +68,7 @@ complete -F _docker-container-names dkr
 
 docker-restart-logs(){
     # $1 == container
-    docker restart $1 && docker logs -f --tail 100 $1
+    docker restart $1 && docker logs -f --tail ${2-100} $1
 }
 alias dkrl='docker-restart-logs'
 complete -F _docker-container-names dkrl
@@ -80,6 +80,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Git
+alias g="git"
 alias gst="git status"
 alias gc="git checkout"
 alias gd="git diff"
