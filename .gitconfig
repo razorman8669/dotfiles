@@ -19,6 +19,8 @@
 
 # Start other core configuration
 [alias]
+    co = checkout
+    mm = merge origin/master
 	credit = commit --amend --author "$1 <$2>" -C HEAD
 	unstage = reset HEAD --
 	fuckit = reset --hard HEAD
@@ -31,7 +33,8 @@
 	lls = !git ll --stat
 	exportfiles = !sh -c 'git diff $0 --name-only | "while read files; do mkdir -p \"$1/$(dirname $files)\"; cp -vf $files $1/$(dirname $files); done"'
 	rmerge = !git checkout -b $1 origin/$1 && git checkout ${2:-master} && git merge --no-ff $1 && git branch -D $1
-
+    ; merge-log - shows the commits inlcuded by a merge; usage: `git mlog [commit] [log-options]`
+	mlog = "!f() { args=(\"${@-HEAD}\"); if [[ ${args[0]} == \"-\"* ]]; then args=(\"HEAD\" \"${args[@]}\"); fi; git log \"${args[0]}^..${args[0]}\" ${args[@]:1}; }; f"
 [color]
 	ui = yes
 
@@ -62,15 +65,9 @@
 [credential]
 	helper = osxkeychain
 [pull]
-    rebase = true
+    # rebase = true
 [push]
     default = current
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Users/razor/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [commit]
 	template = /Users/razor/.stCommitMsg
 [gpg]
