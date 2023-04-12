@@ -58,7 +58,7 @@ alias dkexec='docker-exec'
 
 complete -F _docker-container-names dkexec
 
-alias dc="docker-compose"
+alias dc="docker compose"
 complete -F _docker_compose dc
 
 alias dkrmall="docker rm \$(docker ps -aq)"

@@ -1,6 +1,6 @@
 [user]
 	name = Ray Marceau
-	email = ray@raymarceau.com
+	email = razorman8669@users.noreply.github.com
 
 [includeIf "gitdir:~/dev/slackincode.github.io"]
     path = ~/dev/slackincode.github.io/.gitconfig

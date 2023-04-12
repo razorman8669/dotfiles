@@ -58,6 +58,7 @@ export NODE_REPL_HISTORY_SIZE='32768';
 export NODE_REPL_MODE='sloppy';
 
 # Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTTIMEFORMAT="%F %T "
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
