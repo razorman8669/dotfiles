@@ -1,5 +1,5 @@
 # Path to your dotfiles installation.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES="$HOME/.dotfiles"
 
 # Ensure user-installed binaries take precedence
 export PATH=/usr/local/bin:$PATH

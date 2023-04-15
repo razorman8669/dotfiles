@@ -68,7 +68,7 @@ ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
 ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global
 
 # NVM install
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 # Setup awesomeVim https://github.com/amix/vimrc
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime

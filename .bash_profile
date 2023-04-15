@@ -1,5 +1,5 @@
 # Path to your dotfiles installation.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES="$HOME/.dotfiles"
 
 # Load .bashrc .bash_prompt if exists
 test -f ~/.bashrc && source ~/.bashrc
