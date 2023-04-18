@@ -12,7 +12,7 @@ export PATH=/opt/homebrew/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 
 # Add Visual Studio Code (code)
-export PATH="$PATH:$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Chromium - make sure to `git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git`
 # From https://chromium.googlesource.com/chromium/src/+/HEAD/docs/mac_build_instructions.md
