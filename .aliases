@@ -79,6 +79,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+# system monitoring
+alias pingg="docker run --rm -it pingg-ray" # make sure to run 'docker build -t pingg-ray' inside ~/dev/pingg
+alias whatismyip="curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+alias speedtest="wget -O /dev/null --progress=dot:mega  wget http://50.23.64.58/downloads/test100.zip; date"
+
 # Git
 alias g="git"
 alias gst="git status"

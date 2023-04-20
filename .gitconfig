@@ -1,6 +1,7 @@
 [user]
 	name = Ray Marceau
 	email = razorman8669@users.noreply.github.com
+	signingkey = 3BB95FC03EB60C21
 
 [includeIf "gitdir:~/dev/slackincode.github.io"]
     path = ~/dev/slackincode.github.io/.gitconfig
@@ -70,8 +71,9 @@
     default = current
 [commit]
 	template = /Users/razor/.stCommitMsg
+	gpgsign = true
 [gpg]
-	program = gpg2
+	program = /opt/homebrew/bin/gpg
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

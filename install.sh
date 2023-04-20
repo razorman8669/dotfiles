@@ -3,6 +3,9 @@
 echo "Setting up your Mac..."
 sudo -v
 
+# Mac defaults to zsh on new accounts.  so set to bash
+chsh -s /bin/bash
+
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -44,6 +47,8 @@ brew install vim
 brew install grep
 
 # Install other useful binaries.
+brew install wget
+brew install ncdu
 brew install ack
 brew install git
 brew install git-lfs
@@ -76,4 +81,5 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
-source .macos
+echo "You should run `source .macos` either individually, or after applications are installed (like chrome).
+#source .macos
