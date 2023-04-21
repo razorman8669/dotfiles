@@ -7,9 +7,8 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
 # Homebrew sbin
 export PATH=/opt/homebrew/sbin:$PATH
-
-# user home binaries
-export PATH=$HOME/bin:$PATH
+# .dotfiles bin
+export PATH=$DOTFILES/bin:$PATH
 
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
