@@ -1,0 +1,28 @@
+// Place your key bindings in this file to overwrite the defaultsauto[]
+[
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+d",
+        "command": "editor.action.deleteLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+backspace",
+        "command": "-editor.action.deleteLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+w",
+        "command": "editor.emmet.action.wrapIndividualLinesWithAbbreviation",
+        "when": "editorHasSelection && editorTextFocus && resourceLangId == 'html'"
+    }
+]
