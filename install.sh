@@ -48,11 +48,13 @@ brew install grep
 
 # Install other useful binaries.
 brew install wget
+brew install htop
 brew install ncdu
 brew install ack
 brew install git
 brew install git-lfs
 brew install --cask iterm2
+brew install --cask visual-studio-code
 
 # pyenv installation
 brew install openssl readline sqlite3 xz zlib
@@ -78,6 +80,13 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 # Setup awesomeVim https://github.com/amix/vimrc
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
+
+# setup dotfiles precommit-hook
+cp ~/.dotfiles/dotfiles-precommit-hook ~/.dotfiles/.git/hooks/pre-commit
+
+# symlink vscode settings
+ln -s /Users/razor/.dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s /Users/razor/.dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
