@@ -84,6 +84,9 @@ alias pingg="docker run --rm -it pingg-ray" # make sure to run 'docker build -t 
 alias whatismyip="curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 alias speedtest="wget -O /dev/null --progress=dot:mega  wget http://50.23.64.58/downloads/test100.zip; date"
 
+# Tailscale
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
 # Git
 alias g="git"
 alias gst="git status"
