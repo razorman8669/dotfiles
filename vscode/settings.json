@@ -26,6 +26,9 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "application.shellEnvironmentResolutionTimeout": 20,
     "breadcrumbs.enabled": false,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -41,7 +44,6 @@
     "editor.minimap.renderCharacters": false,
     "editor.minimap.showSlider": "always",
     "editor.minimap.size": "fit",
-    "editor.scrollBeyondLastLine": false,
     "editor.stickyScroll.enabled": true,
     "editor.suggest.localityBonus": true,
     "editor.tabCompletion": "on",
@@ -63,6 +65,7 @@
     "gitlens.advanced.telemetry.enabled": false,
     "gitlens.codeLens.enabled": false,
     "gitlens.graph.statusBar.enabled": false,
+    // "gitlens.hovers.currentLine.over": "line",
     "gitlens.integrations.enabled": true,
     "gitlens.plusFeatures.enabled": false,
     "gitlens.telemetry.enabled": false,
@@ -90,9 +93,13 @@
     "workbench.colorTheme": "Base16 Tomorrow Dark",
     "workbench.editor.tabCloseButton": "left",
     "workbench.editor.tabSizing": "shrink",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
     "workbench.list.horizontalScrolling": true,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "editor.scrollBeyondLastColumn": 8,
+    "editor.scrollBeyondLastLine": false,
+    "editor.mouseWheelScrollSensitivity": 0.5,
+    "editor.smoothScrolling": true,
+    "workbench.list.mouseWheelScrollSensitivity": 0.2,
+    "editor.scrollbar.verticalScrollbarSize": 18,
+    "tabnine.experimentalAutoImports": true
 }
