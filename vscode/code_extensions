@@ -1,4 +1,6 @@
+bradlc.vscode-tailwindcss
 christian-kohler.npm-intellisense
+csstools.postcss
 dbaeumer.vscode-eslint
 dsznajder.es7-react-js-snippets
 eamodio.gitlens
@@ -13,4 +15,6 @@ ms-python.python
 ms-python.vscode-pylance
 ms-vscode-remote.remote-containers
 Prisma.prisma
+redhat.vscode-xml
 redhat.vscode-yaml
+TabNine.tabnine-vscode
