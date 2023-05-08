@@ -55,6 +55,7 @@ brew install git
 brew install git-lfs
 brew install --cask iterm2
 brew install --cask visual-studio-code
+brew install --cask fluor
 
 # pyenv installation
 brew install openssl readline sqlite3 xz zlib
