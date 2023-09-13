@@ -69,3 +69,5 @@ export LDFLAGS="-L/opt/homebrew/opt/openssl/lib"
 
 # Fixes GPG keychain issues
 export GPG_TTY=$(tty)
+export STARSHIP_CONFIG=~/.dotfiles/starship/starship.toml
+eval "$(starship init bash)"
