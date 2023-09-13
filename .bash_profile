@@ -12,3 +12,4 @@ if [ -f '/Users/razor/google-cloud-sdk/path.bash.inc' ]; then . '/Users/razor/go
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/razor/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/razor/google-cloud-sdk/completion.bash.inc'; fi
+. "$HOME/.cargo/env"

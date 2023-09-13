@@ -79,7 +79,6 @@
         "**/dist": true
     },
     "search.searchOnType": false,
-    "search.useIgnoreFiles": false,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "telemetry.telemetryLevel": "off",
@@ -101,5 +100,10 @@
     "editor.smoothScrolling": true,
     "workbench.list.mouseWheelScrollSensitivity": 0.2,
     "editor.scrollbar.verticalScrollbarSize": 18,
-    "tabnine.experimentalAutoImports": true
+    "tabnine.experimentalAutoImports": true,
+    "githubPullRequests.pushBranch": "always",
+    "git.openRepositoryInParentFolders": "never",
+    "explorer.confirmDragAndDrop": false,
+    "search.useParentIgnoreFiles": true,
+    "terminal.integrated.fontFamily": "Hack Nerd Font"
 }

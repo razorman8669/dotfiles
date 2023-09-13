@@ -10,6 +10,10 @@ export PATH=/opt/homebrew/sbin:$PATH
 # .dotfiles bin
 export PATH=$DOTFILES/bin:$PATH
 
+# To have kubectl use the new binary plugin for authentication instead of using the default provider-specific code, use the following steps.
+# see https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
@@ -69,5 +73,19 @@ export LDFLAGS="-L/opt/homebrew/opt/openssl/lib"
 
 # Fixes GPG keychain issues
 export GPG_TTY=$(tty)
+
+
+# Kubernetes kubectl autocompletion https://kubernetes.io/docs/reference/kubectl/cheatsheet/#bash
+source <(kubectl completion bash)
+
+alias k=kubectl
+complete -o default -F __start_kubectl k
+. "$HOME/.cargo/env"
+
+# from `pnpm install-completion`
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
+
 export STARSHIP_CONFIG=~/.dotfiles/starship/starship.toml
 eval "$(starship init bash)"

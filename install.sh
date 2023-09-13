@@ -53,6 +53,14 @@ brew install ncdu
 brew install ack
 brew install git
 brew install git-lfs
+
+# Starship prompt
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
+brew install starship
+
+brew install pnpm
+brew install gimp
 brew install --cask iterm2
 brew install --cask visual-studio-code
 brew install --cask fluor
