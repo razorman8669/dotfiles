@@ -19,6 +19,7 @@ $python\
 $rust\
 $swift\
 $cmd_duration\
+$line_break\
 $time\
 $username\
 $os\
@@ -26,9 +27,12 @@ $hostname\
 $status\
 $character"""
 
+command_timeout = 1_000
+
 [directory]
 fish_style_pwd_dir_length = 1
-style = 'C0C0C0'
+truncation_length = 4
+style = 'bold cyan'
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style) '
@@ -36,7 +40,7 @@ style = 'green'
 
 [cmd_duration]
 min_time = 1_000
-format = '\[[$duration]($style)\]'
+format = '\[[$duration](bold yellow)\]'
 style = 'yellow'
 
 [time]

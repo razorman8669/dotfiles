@@ -74,6 +74,7 @@ export LDFLAGS="-L/opt/homebrew/opt/openssl/lib"
 # Fixes GPG keychain issues
 export GPG_TTY=$(tty)
 
+export TAILNET="razor.bunny-emperor.ts.net"
 
 # Kubernetes kubectl autocompletion https://kubernetes.io/docs/reference/kubectl/cheatsheet/#bash
 source <(kubectl completion bash)
@@ -89,3 +90,14 @@ complete -o default -F __start_kubectl k
 
 export STARSHIP_CONFIG=~/.dotfiles/starship/starship.toml
 eval "$(starship init bash)"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"

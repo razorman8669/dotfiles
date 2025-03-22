@@ -94,8 +94,8 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ~/.dotfiles/dotfiles-precommit-hook ~/.dotfiles/.git/hooks/pre-commit
 
 # symlink vscode settings
-ln -s /Users/razor/.dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s /Users/razor/.dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -s $HOME/.dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s $HOME/.dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
