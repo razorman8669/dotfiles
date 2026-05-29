@@ -83,6 +83,11 @@ ln -s $HOME/.dotfiles/.aliases $HOME/.aliases
 ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
 ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global
 
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+  cp "$HOME/.dotfiles/gitconfig.local.example" "$HOME/.gitconfig.local"
+  echo "Created ~/.gitconfig.local — edit it with your name, email, and GPG signing key."
+fi
+
 # NVM install
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 

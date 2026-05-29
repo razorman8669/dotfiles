@@ -1,13 +1,5 @@
-[user]
-	name = Ray Marceau
-	email = razorman8669@users.noreply.github.com
-	signingkey = 3BB95FC03EB60C21
-
-[includeIf "gitdir:~/dev/slackincode.github.io"]
-    path = ~/dev/slackincode.github.io/.gitconfig
-
-[includeIf "gitdir:~/dev/purse"]
-    path = ~/dev/purse/.gitconfig
+[include]
+	path = ~/.gitconfig.local
 
 
 # Makes pushing easier on master branch
@@ -15,8 +7,8 @@
 # 	remote = origin
 # 	merge = refs/heads/master
 
-[url "git@github.com"]
-	insteadOf = gh
+[url "git@github.com:"]
+	insteadOf = gh:
 
 # Start other core configuration
 [alias]
@@ -41,7 +33,7 @@
 
 [core]
 	autocrlf = input
-	excludesfile = /Users/razor/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
 	precomposeUnicode = true
 
@@ -70,7 +62,7 @@
 [push]
     default = current
 [commit]
-	template = /Users/razor/.stCommitMsg
+	template = ~/.stCommitMsg
 	gpgsign = true
 [gpg]
 	program = /opt/homebrew/bin/gpg

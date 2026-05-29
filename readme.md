@@ -50,6 +50,8 @@ Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to inst
 
 Check out the [`aliases`](./.aliases) file and add your own aliases.
 
+Copy [`gitconfig.local.example`](./gitconfig.local.example) to `~/.gitconfig.local` and set your Git name, email, and GPG signing key. That file stays on your machine and is not committed (see [`.gitignore`](./.gitignore)).
+
 ## Hosts
 
 A malware and adware removing hosts file from https://github.com/StevenBlack/hosts/blob/master/readme.md#option-1-use-our-container-image-linux-only

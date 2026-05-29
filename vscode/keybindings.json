@@ -204,4 +204,8 @@
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "explorerViewletFocus"
     },
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    }
 ]
