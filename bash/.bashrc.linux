@@ -1,0 +1,20 @@
+# Linux / devcontainer bash configuration.
+# Node is provided by the devcontainer (Node feature + Corepack), so there is
+# deliberately no NVM or pyenv bootstrap here.
+
+# pnpm (Corepack-managed in devcontainers)
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# Local user bin (pip --user, curl-installed tools, etc.)
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
+# Optional tools installed by scripts/setup-linux.sh
+command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init bash)"
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash

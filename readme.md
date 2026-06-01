@@ -40,6 +40,35 @@ Your Mac is now ready to use!
 
 > Note: you can use a different location than `~/.dotfiles` if you want. Just make sure you also update the reference in the [`.bashrc`](./.bashrc) file.
 
+## Repository layout (GNU Stow)
+
+The dotfiles are organized as [GNU Stow](https://www.gnu.org/software/stow/)
+packages so they can be symlinked into `$HOME` cleanly and shared across
+machines:
+
+- `bash/` — `.bashrc` is a small loader that sources `bash/.bashrc.common`
+  (portable) and then `bash/.bashrc.darwin` or `bash/.bashrc.linux` based on
+  `uname`. macOS-only aliases live in `bash/.aliases.darwin`.
+- `git/` — portable `.gitconfig` plus `gitconfig.darwin` / `gitconfig.linux`
+  fragments. The stow helper links the right one to `~/.gitconfig.platform`.
+- `starship/` — prompt config, stowed to `~/.config/starship.toml`.
+- `scripts/` — `stow-dotfiles.sh` (shared) and `setup-linux.sh` (containers).
+
+`install.sh` (macOS) and `scripts/setup-linux.sh` (Linux/containers) both end by
+calling `scripts/stow-dotfiles.sh`. Neither runs the other's platform logic.
+
+> Migration note: if you previously installed an older version of these
+> dotfiles, you may have symlinks in `$HOME` pointing at repo-root files
+> (`~/.bashrc -> ~/.dotfiles/.bashrc`). Re-running `./install.sh` removes those
+> and re-stows the new layout. To stow manually, remove the old symlinks first
+> (or run `stow --adopt`).
+
+## Dev containers
+
+These dotfiles can be applied inside a Cursor / VS Code dev container without the
+macOS bootstrap. See [docs/devcontainer.md](docs/devcontainer.md) for the full
+guide and the snippet to drop into `~/.devcontainer-personal/setup.sh`.
+
 ## Your Own Dotfiles
 
 If you want to start with your own dotfiles from this setup, it's pretty easy to do so. First of all you'll need to fork this repo. After that you can tweak it the way you want.

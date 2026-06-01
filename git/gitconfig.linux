@@ -1,0 +1,14 @@
+# Linux / devcontainer git settings.
+# Linked to ~/.gitconfig.platform by scripts/stow-dotfiles.sh.
+
+[credential]
+	# Cache credentials in memory for an hour (no system keychain in containers).
+	helper = cache --timeout=3600
+
+[gpg]
+	program = gpg
+
+[commit]
+	# Off by default in containers; opt back in via ~/.gitconfig.local if you
+	# have a signing key available.
+	gpgsign = false

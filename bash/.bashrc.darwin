@@ -1,0 +1,52 @@
+# macOS-specific bash configuration (Homebrew, pyenv, NVM, etc.).
+
+# Ensure user-installed binaries take precedence
+export PATH=/usr/local/bin:$PATH
+# Apple Silicon location
+export PATH=/opt/homebrew/bin:$PATH
+# Homebrew sbin
+export PATH=/opt/homebrew/sbin:$PATH
+
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Chromium - make sure to `git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git`
+# From https://chromium.googlesource.com/chromium/src/+/HEAD/docs/mac_build_instructions.md
+export PATH="$PATH:$HOME/dev/depot_tools"
+
+# macOS-only aliases
+[ -f "$DOTFILES/bash/.aliases.darwin" ] && source "$DOTFILES/bash/.aliases.darwin"
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
+if which pyenv-virtualenv-init > /dev/null 2>&1; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# OpenSSL homebrew: https://github.com/pyenv/pyenv/wiki/Common-build-problems
+export CFLAGS="-I/opt/homebrew/opt/openssl/include"
+export LDFLAGS="-L/opt/homebrew/opt/openssl/lib"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bash-completion2 (Homebrew)
+if command -v brew >/dev/null 2>&1; then
+  [[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+fi
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"

@@ -1,5 +1,10 @@
 [include]
+	# Personal identity: name, email, signing key (not committed)
 	path = ~/.gitconfig.local
+	# OS-specific settings. Git has no native OS conditional include, so the
+	# stow helper symlinks ~/.gitconfig.platform to git/gitconfig.darwin or
+	# git/gitconfig.linux for us.
+	path = ~/.gitconfig.platform
 
 
 # Makes pushing easier on master branch
@@ -35,7 +40,6 @@
 	autocrlf = input
 	excludesfile = ~/.gitignore_global
 	editor = vim
-	precomposeUnicode = true
 
 [merge]
 	conflictstyle = diff3
@@ -55,17 +59,10 @@
 # 	required = true
 # [commit]
 # 	gpgsign = true
-[credential]
-	helper = osxkeychain
 [pull]
     # rebase = true
 [push]
     default = current
-[commit]
-	template = ~/.stCommitMsg
-	gpgsign = true
-[gpg]
-	program = /opt/homebrew/bin/gpg
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

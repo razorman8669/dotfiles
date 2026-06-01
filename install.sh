@@ -54,6 +54,9 @@ brew install ack
 brew install git
 brew install git-lfs
 
+# GNU Stow - symlink manager for the dotfiles
+brew install stow
+
 # Starship prompt
 brew tap homebrew/cask-fonts
 brew install font-hack-nerd-font
@@ -73,15 +76,12 @@ brew install pyenv-virtualenv
 # Remove outdated versions from the cellar.
 brew cleanup
 
-# Removes .bash* from $HOME (if it exists) and symlinks the them from the .dotfiles
-rm -rf $HOME/.aliases $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global
-ln -s $HOME/.dotfiles/.bashrc $HOME/.bashrc
-ln -s $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
-ln -s $HOME/.dotfiles/.bash_prompt $HOME/.bash_prompt
-ln -s $HOME/.dotfiles/.aliases $HOME/.aliases
+# Remove any old dotfile symlinks/files from the pre-stow layout so GNU Stow
+# can take over cleanly (harmless if they don't exist).
+rm -f $HOME/.aliases $HOME/.bashrc $HOME/.bash_profile $HOME/.bash_prompt $HOME/.gitconfig $HOME/.gitignore_global
 
-ln -s $HOME/.dotfiles/.gitconfig ~/.gitconfig
-ln -s $HOME/.dotfiles/.gitignore_global ~/.gitignore_global
+# Symlink dotfiles into $HOME via GNU Stow (bash, git, starship packages).
+"$HOME/.dotfiles/scripts/stow-dotfiles.sh"
 
 if [ ! -f "$HOME/.gitconfig.local" ]; then
   cp "$HOME/.dotfiles/gitconfig.local.example" "$HOME/.gitconfig.local"

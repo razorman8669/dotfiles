@@ -1,0 +1,4 @@
+# Platform fragments are linked to ~/.gitconfig.platform by stow-dotfiles.sh,
+# so they must not be symlinked directly into $HOME.
+gitconfig\.darwin
+gitconfig\.linux

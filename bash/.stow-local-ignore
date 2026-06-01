@@ -1,0 +1,6 @@
+# Fragments are sourced directly from $DOTFILES by .bashrc, so they must not be
+# symlinked into $HOME.
+\.bashrc\.common
+\.bashrc\.darwin
+\.bashrc\.linux
+\.aliases\.darwin

@@ -1,0 +1,56 @@
+# Shared bash configuration sourced on every platform.
+# Anything in here must work on both macOS and Linux (devcontainers).
+
+# To have kubectl use the new binary plugin for authentication instead of using
+# the default provider-specific code, use the following.
+# see https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# DOCKER - use plain buildkit output
+export BUILDKIT_PROGRESS=plain
+
+# Load .aliases
+test -f "$DOTFILES/bash/.aliases" && source "$DOTFILES/bash/.aliases"
+
+# Search up/down (reverse lookup on arrow keys)
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# Make vim the default editor.
+export EDITOR='vim'
+
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768'
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy'
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTTIMEFORMAT="%F %T "
+export HISTSIZE='32768'
+export HISTFILESIZE="${HISTSIZE}"
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth'
+
+# Fixes GPG keychain issues
+export GPG_TTY=$(tty)
+
+# Kubernetes kubectl autocompletion
+# https://kubernetes.io/docs/reference/kubectl/cheatsheet/#bash
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion bash)
+  alias k=kubectl
+  complete -o default -F __start_kubectl k
+fi
+
+# Rust / cargo
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# tabtab source for packages (e.g. pnpm completion); uninstall by removing the file
+[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
+
+# Starship prompt. Config is stowed to the default ~/.config/starship.toml,
+# so clear any stale STARSHIP_CONFIG inherited from the old (pre-stow) layout.
+unset STARSHIP_CONFIG
+command -v starship >/dev/null 2>&1 && eval "$(starship init bash)"

@@ -67,6 +67,10 @@ format = '[$symbol]($style)'
 Arch = ''
 Macos = ''
 
+Ubuntu = ''
+Debian = ''
+Linux = ''
+
 [deno]
 format = '[$symbol($version )]($style)'
 

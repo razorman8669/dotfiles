@@ -1,0 +1,15 @@
+# macOS-specific git settings.
+# Linked to ~/.gitconfig.platform by scripts/stow-dotfiles.sh.
+
+[credential]
+	helper = osxkeychain
+
+[core]
+	precomposeUnicode = true
+
+[commit]
+	template = ~/.stCommitMsg
+	gpgsign = true
+
+[gpg]
+	program = /opt/homebrew/bin/gpg

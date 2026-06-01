@@ -23,7 +23,6 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # Shortcuts
 alias reloadcli="source $HOME/.bashrc"
-alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
@@ -83,9 +82,6 @@ alias .....="cd ../../../.."
 alias pingg="docker run --rm -it pingg-ray" # make sure to run 'docker build -t pingg-ray' inside ~/dev/pingg
 alias whatismyip="curl -s checkip.dyndns.org|sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 alias speedtest="wget -O /dev/null --progress=dot:mega  http://50.23.64.58/downloads/test100.zip; date"
-
-# Tailscale
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # pnpm
 alias p="pnpm"

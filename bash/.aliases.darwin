@@ -1,0 +1,8 @@
+#!/bin/bash
+# macOS-only aliases (sourced from .bashrc.darwin).
+
+# Flush DNS cache
+alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
+# Tailscale CLI shipped inside the macOS app bundle
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
