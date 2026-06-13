@@ -18,3 +18,6 @@ esac
 # Optional tools installed by scripts/setup-linux.sh
 command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init bash)"
 [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# Machine-local overrides (e.g. NVM on a Pi server). Not committed; see gitconfig.local.
+[ -f "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
